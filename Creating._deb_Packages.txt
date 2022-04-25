@@ -33,3 +33,5 @@ Description: A program that greets you.
 7. Build the package
     Command: dpkg-deb --build --root-owner-group helloworld_1.0-1_arm64
     This creates a .deb package in the current wd.
+
+Source: https://www.internalpointers.com/post/build-binary-deb-package-practical-guide
