@@ -15,3 +15,5 @@ This uses the text "Creating._deb_Packages.txt" as a starting point, as we'll mo
     gzip <wd>/usr/local/man/man1/<programName>.1
 
 This is the whole workflow. From here, build your package using dpkg-deb like I described in the other .txt
+
+Source: https://www.howtogeek.com/682871/how-to-create-a-man-page-on-linux/
