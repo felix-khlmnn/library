@@ -15,7 +15,7 @@ For example, suppose you want to release your program called hello, version 1.0,
 
 Making the package
 
-Prereqisites: dpkg-deb installed
+Prerequisites: dpkg-deb installed
 
 1. Make a temporary working directory following the aforementioned naming convention
 2. Create the internal structure of the directory (mimicking a Linux filesystem bin path like /usr/local/bin)
