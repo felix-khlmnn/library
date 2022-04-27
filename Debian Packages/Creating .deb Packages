@@ -1,6 +1,10 @@
-A deb is a standard Unix ar archive that contains your application and other utility files. The most important one is the control file, which stores the information about the deb package and the program it installs.
-Internally, a deb package contains a collection of folders that mimics a typical Linux file system, such as /usr, /usr/bin, /opt and so on. A file put in one of those directories will be copied to the same location in the actual file system during installation. So, for example a binary file put into <.deb>/usr/local/bin/binaryfile will be installed to /usr/local/bin/binaryfile.
-On the outside instead, all deb package files follow a specific naming convention:
+A deb is a standard Unix ar archive that contains your application and other utility files.
+The most important one is the control file, which stores the information about the deb package and the program it installs.
+Internally, a deb package contains a collection of folders that mimics a typical Linux file system, such as /usr, /usr/bin, /opt and so on.
+A file put in one of those directories will be copied to the same location in the actual file system during installation.
+So, for example a binary file put into <.deb>/usr/local/bin/binaryfile will be installed to /usr/local/bin/binaryfile.
+
+On the outside, all deb package files follow a specific naming convention:
 
 <name>_<version>-<revision>_<architecture>.deb
 
@@ -11,7 +15,8 @@ That is:
  - <revision> – the version number of the current deb package;
  - <architecture> – the hardware architecture your program will be run on
 
-For example, suppose you want to release your program called hello, version 1.0, built for 64-bit ARM processors. Your deb file name would look something like hello_1.0-1_arm64.deb
+For example, suppose you want to release your program called hello, version 1.0, built for 64-bit ARM processors. 
+Your deb file name would look something like hello_1.0-1_arm64.deb
 
 Making the package
 
@@ -26,7 +31,7 @@ Prerequisites: dpkg-deb installed
 Package: hello
 Version: 1.0
 Architecture: arm64
-Maintainer: Internal Pointers <info@internalpointers.com>
+Maintainer: Felix K <mail@mail.com>
 Description: A program that greets you.
  You can add a longer description here.
 (THE SPACE IN THE BEGINNING OF THE LAST LINE IS VERY IMPORTANT)

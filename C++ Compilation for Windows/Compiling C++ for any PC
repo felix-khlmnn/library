@@ -6,7 +6,8 @@ I did a bit of research and found the solution for this problem.
 
 Usually, you compile a file with g++ with a command similar to the following:
     g++ -o <programName> <programName>.cpp
-This creates an executable that should always work on your computer. To avoid the aforementioned problem, we must expand the compilation process by running the following commands:
+This creates an executable that should always work on your computer.
+To avoid the aforementioned problem, we must expand the compilation process by running the following commands:
     g++ -Wall -c -g <programName>.cpp -o obj\main.o
     g++ -static -static-libgcc -static-libstdc++ -o "bin\<programName>.exe" obj\main.o
 
