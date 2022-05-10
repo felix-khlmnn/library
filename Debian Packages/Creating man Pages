@@ -1,4 +1,4 @@
-A man page is a manual for a program. It can be called by typing man <program name>.
+A man page is a manual for a program. It can be called by typing man <programName>.
 Man pages are written in the roff format. However, the pandoc tool allows us to write a man page in markdown, which is easier to understand and to read.
 
 This uses the text "Creating .deb_Packages" as a starting point, as we'll modify its inner structure to add a man page.
