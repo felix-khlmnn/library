@@ -1,0 +1,52 @@
+# Creating .deb Packages
+
+A deb is a standard Unix ar archive that contains your application and other utility files.
+The most important one is the control file, which stores the information about the deb package and the program it installs.
+Internally, a deb package contains a collection of folders that mimics a typical Linux file system, such as `/usr`, `/usr/bin`, `/opt` and so on.
+A file put in one of those directories will be copied to the same location in the actual file system during installation.
+So, for example a binary file put into `<.deb>/usr/local/bin/binaryfile` will be installed to `/usr/local/bin/binaryfile`.
+
+## The file
+
+On the outside, all deb package files follow a specific naming convention:  
+`<name>_<version>-<revision>_<architecture>.deb`  
+That is:
+
+ - `<name>` – the name of your application;
+ - `<version>` – the version number of your application;
+ - `<revision>` – the version number of the current deb package;
+ - `<architecture>` – the hardware architecture your program will be run on
+
+For example, suppose you want to release your program called hello, version 1.0, built for 64-bit ARM processors. 
+Your deb file name would look something like `hello_1.0-1_arm64.deb`
+
+## Creating the package
+
+Prerequisites: dpkg-deb installed
+
+1. Make a temporary working directory following the aforementioned naming convention
+2. Create the internal structure of the directory (mimicking a Linux filesystem bin path like `/usr/local/bin`)
+3. Copy your binary into the binary folder of the internal structure
+4. Create the DEBIAN directory, containing a file called control.
+5. Use chmod 755 (or 775) on both the DEBIAN directory and the control file.
+6. Fill in the control file with the following template:
+    ```
+    Package: hello
+    Version: 1.0
+    Architecture: arm64
+    Maintainer: Felix K <mail@mail.com>
+    Description: A program that greets you.
+    You can add a longer description here.
+    (THE SPACE IN THE BEGINNING OF THE LAST LINE IS VERY IMPORTANT)
+    ```
+7. Build the package
+    ```bash
+    dpkg-deb --build --root-owner-group helloworld_1.0-1_arm64
+    ```
+    This creates a .deb package in the current wd.
+
+## Notes
+
+- `/usr/local/bin` is **not** a good place to store your binaries. Store them in `/usr/bin` instead.
+
+[Source](https://www.internalpointers.com/post/build-binary-deb-package-practical-guide)
