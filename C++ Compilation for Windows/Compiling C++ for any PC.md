@@ -5,7 +5,7 @@ The problem with publishing software compiled from C++ is that not every compute
 I ran into this problem myself creating CLCalc, which wouldn't run on a normal machine, throwing cryptic errors that I didn't understand. I did a bit of research and found the solution for this problem.
 
 Usually, you compile a file with g++ with a command similar to the following:  
-```bash
+```powershell
 g++ -o <programName> <programName>.cpp
 ```
 This creates an executable that should always work on your computer. 
@@ -13,7 +13,7 @@ This creates an executable that should always work on your computer.
 ## Fixing the problem
 
 To avoid the aforementioned problem, we must expand the compilation process by running the following commands:
-```bash
+```powershell
 g++ -Wall -c -g <programName>.cpp -o obj\main.o
 g++ -static -static-libgcc -static-libstdc++ -o "bin\<programName>.exe" obj\main.o
 ```
